@@ -1,0 +1,256 @@
+
+/* Importar as fontes usadas no projeto localmente */
+@font-face {
+  font-family: "Lansdowne";
+  src: url("Lansdowne.ttf");
+}
+
+@font-face {
+  font-family: "CELTG__";
+  src: url("CELTG___.ttf");
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url('dragao-fundo.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+}
+
+/* classes usadas nas divs */
+.container-head {
+  background-image: url('banner.png');
+  background-size: max(800px, 60vw) auto;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20vw;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-d20 {
+  background-image: url(d20-fundo.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  max-height: 500px;
+  max-width: 500px;
+  overflow: hidden;
+}
+
+.container-dice {
+  display: inline-block;
+  align-items: center;
+  flex-direction: column;
+  padding: 1px;
+}
+
+.div-title {
+  position: relative;
+  text-align: center; 
+  left: 0;
+  right: 0;
+  height: 10vw;
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
+.div-spacing {
+  height: 300px;
+}
+
+.container {
+  background-image: url(scroll2.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: relative;
+  background-size: 100% 100%;
+  height: 100%;
+  min-height: 30vh ;
+  max-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  padding: 10% 25px;
+  overflow: auto;
+}
+
+.container-get {
+  background-color: wheat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+  overflow: auto;
+  padding-top: 10%;
+  padding-bottom: 10%;
+  --b: 15px;
+  --s: 60px; 
+  --c1: #215A6D;
+  --c2: #92C7A3;
+}
+
+.container-get::before {
+  content:"";
+  position: absolute;
+  inset: 0;
+  padding: var(--b);
+  background: 
+    repeating-conic-gradient(var(--c1) 0 25%,var(--c2) 0 50%) 
+    0 0/var(--s) var(--s) round;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+  pointer-events: none;
+}
+
+.container-get:hover {
+  box-shadow: 0px 5px 20px 15px gray;
+}
+
+/* Classes dos botões */
+.delete_button {
+  background-image: url("./button-del.png");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+}
+
+.delete_button:active {
+  background-image: url("./button-del-press.png");
+}
+
+.add_button {
+  background-image: url("./button-add.png");
+  width: 30px;
+  height: 30px;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background-size: cover;
+  margin: 10px;
+}
+
+.add_button:active {
+  background-image: url("./button-add-press.png");
+}
+.center-list {
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0;
+  flex-direction: row;
+}
+
+/* IDs */
+#d20-text {
+  text-align: center;
+  margin: 50px;
+  padding: 50px;
+  overflow: hidden;
+  line-height: 1;
+  font-size: max(32px, 2.3vw);
+  max-width: 14vw;
+}
+
+#roll-button {
+  width: max(250px, 12vw);
+  cursor: pointer;
+}
+
+#mensagem {
+  line-height: 0.1;
+  font-size: max(32px, 2.3vw);
+
+}
+
+#u-mensagem {
+  line-height: 0.1;
+  font-size: max(18px, 1.3vw);
+}
+
+#boardgames-table {
+  word-wrap: break-word;
+  width: 80%;
+  text-align: center;
+  padding: 5px;
+}
+
+#boardgames-table th {
+  font-family: "Lansdowne";
+  color: #1f1616;
+  font-size: clamp(16px, 1.5vw, 28px);
+}
+
+#boardgames-table tr{
+  font-family: "CELTG__";
+  color: #381e1e;
+  font-size: clamp(12px, 1vw, 24px);
+}
+
+#feet {
+  width: 100vw;
+  height: auto;
+}
+
+/* CSS para o padrão dos textos */
+h1 {
+  font-family: "Lansdowne";
+  color: goldenrod;
+}
+
+p {
+  font-family: "CELTG__";
+  color: gold;
+}
+
+h2 {
+  font-family: "Lansdowne";
+  color: #9e340c;
+  font-size: 3vw;
+  position: absolute;
+  text-align: center;
+  top: 30%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  background-image: url("title.png");
+  background-size: 100% 100%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-left: 30px;
+  padding-right: 30px;
+  background-repeat: no-repeat;
+}
+
+input {
+  background: transparent;
+  border: none;
+  box-shadow: 0 1px 0 0 #000;
+  font-family: "CELTG__";
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: clamp(7px, 0.8vw, 16px)
+}

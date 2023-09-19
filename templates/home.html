@@ -1,0 +1,87 @@
+<!doctype html>
+
+<html> 
+	<head> 
+		<title> Gameteca </title>
+		<meta charset="utf-8">
+
+        <link rel="icon" href="{{ url_for('static', filename='css/dice.ico') }}" type="image/x-icon" >
+        <link rel="shortcut icon" href="{{ url_for('static', filename='css/dice.ico') }}" type="image/x-icon">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+        <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+	</head>
+
+    <body> 
+        <!-- div para mensagem de boas vindas e cabeçalho -->
+        <div class="container-head">
+            <h1 id="mensagem"></h1>
+            <p id="u-mensagem">escolha o seu jogo e siga para a sua aventura!</p>
+        </div>
+
+        <!-- lista não ordenada para criar botão do dado, chamar a função de rolagem em JS e mostrar a mensagem  -->
+        <ul class="center-list">
+            <li class="container-d20">    
+                <span>
+                    <h1 id="d20-text">Role o D20 e teste sua honra para 
+                        acessar a Gameteca (clique no dado)</h1>
+                </span>
+            </li>
+            <li class="container-dice">
+                <span>
+                    <img src="{{ url_for('static', filename='css/d20-dice.gif') }}" alt="Botão de Rolar D20" onclick="rolarD20()" id="roll-button">
+                </span>
+            </li>
+        </ul>
+
+        <div class="div-spacing"></div>
+
+        <!-- div para criar o formulário e chamar a função JS adicionarJogo() -->
+            <div class="div-title">
+                <h2>Adicione jogos a sua Biblioteca</h2>
+            </div>
+
+        <div class="container">
+            <form>
+                <input type="text" minlength="1" maxlength="20" name="nome" placeholder="Nome do jogo" required>
+                <input type="text" minlength="1" maxlength="20" name="publisher" placeholder="Publisher" required>
+                <input type="number" name="playtime" min="5" placeholder="Tempo de jogo em minutos" required>
+                <input type="number" name="min_players" min="1" max="99" placeholder="Mínimo de jogadores" required>
+                <input type="number" name="max_players" min="1" max="99" placeholder="Máximo de jogadores" required>
+                <input type="text" minlength="1" maxlength="20" name="main_mechanic" placeholder="Mecânica principal" required>
+                <button type="button"  class="add_button" onclick="adicionarJogo()"></button>
+            </form>
+        </div>
+
+
+        <div class="div-title">
+            <span class="span-title"><h2>Veja seus jogos!</h2></span>
+        </div>
+
+        <!-- div para criar tabela com os jogos e chamar a rota /list_all que irá listar os jogos no BD  -->
+        <!-- Também chama a função deleteGame do JS para excluir jogos no BD -->
+        <div class="container-get">
+            <table id="boardgames-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Publisher</th>
+                    <th>Tempo de Jogo</th>
+                    <th>Mínimo de Jogadores</th>
+                    <th>Máximo de Jogadores</th>
+                    <th>Mecânica Principal</th>
+                </tr>
+            </table>
+        </div>
+
+        <br><br><br><br><br><br><br>
+
+        <!-- imagem de rodapé -->
+        <img src="{{ url_for('static', filename='css/castle-feet.png') }}" id="feet">
+
+
+        
+    </body>
+
+
+    
